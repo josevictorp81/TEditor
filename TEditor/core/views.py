@@ -15,40 +15,41 @@ class TextListView(LoginRequiredMixin, ListView):
     model = Text
     template_name = 'text_list.html'
     login_url = 'login'
-    redirect_field_name = 'text-list'
 
     def get_context_data(self, **kwargs):
         context = super(TextListView, self).get_context_data(**kwargs)
-        #lang = translation.get_language() #ler o idioma do navegador
         context['text'] = Text.objects.all().filter(user=self.request.user)
         return context
 
 
-class TextCreateView(CreateView):
+class TextCreateView(LoginRequiredMixin, CreateView):
     model = Text
     template_name = 'text_create.html'
     fields = ['title', 'content']
-    success_url = reverse_lazy('text-list')
+    login_url = 'login'
 
 
-class TextDetailView(DetailView):
+class TextDetailView(LoginRequiredMixin, DetailView):
     model = Text
     template_name = 'text_detail.html'
+    login_url = 'login'
 
 
-class TextUpdateView(UpdateView):
+class TextUpdateView(LoginRequiredMixin, UpdateView):
     model = Text
     fields = ['title', 'content']
     template_name = 'text_update.html'
-    success_url = reverse_lazy('text-detail')
+    login_url = 'login'
 
 
-class TextDeleteView(DeleteView):
+class TextDeleteView(LoginRequiredMixin, DeleteView):
     model = Text
     template_name = 'text_delete.html'
     success_url = reverse_lazy('text-list')
+    login_url = 'login'
 
 
-class PDFDownload(PDFTemplateResponseMixin, DetailView):
+class PDFDownload(LoginRequiredMixin, PDFTemplateResponseMixin, DetailView):
     model = Text
     template_name = 'text_download.html'
+    login_url = 'login'
