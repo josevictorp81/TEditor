@@ -5,7 +5,7 @@ from easy_pdf.views import PDFTemplateResponseMixin
 
 from .models import Text
 
-class Index(TemplateView):
+class IndexView(TemplateView):
     template_name = 'index.html'
 
 
@@ -30,7 +30,7 @@ class TextUpdateView(UpdateView):
     model = Text
     fields = ['title', 'content']
     template_name = 'text_update.html'
-    success_url = reverse_lazy('text_detail')
+    success_url = reverse_lazy('text-detail')
 
 
 class TextDeleteView(DeleteView):
@@ -41,4 +41,4 @@ class TextDeleteView(DeleteView):
 
 class PDFDownload(PDFTemplateResponseMixin, DetailView):
     model = Text
-    template_name = 'pdf.html'
+    template_name = 'text_download.html'
