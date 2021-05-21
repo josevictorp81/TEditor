@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from easy_pdf.views import PDFTemplateResponseMixin
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Text
 
@@ -9,9 +11,17 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
 
-class TextListView(ListView):
+class TextListView(LoginRequiredMixin, ListView):
     model = Text
     template_name = 'text_list.html'
+    login_url = 'login'
+    redirect_field_name = 'text-list'
+
+    def get_context_data(self, **kwargs):
+        context = super(TextListView, self).get_context_data(**kwargs)
+        #lang = translation.get_language() #ler o idioma do navegador
+        context['text'] = Text.objects.all().filter(user=self.request.user)
+        return context
 
 
 class TextCreateView(CreateView):
