@@ -7,7 +7,7 @@ class Text(models.Model):
     content = RichTextField(blank=True, null=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     create = models.DateTimeField(auto_now_add=True)
-    create = models.DateTimeField(auto_now=True)
+    update = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'Texto'
