@@ -26,6 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'ckeditor',
+    'easy_pdf',
+    'widget_tweaks',
+
     'core',
 ]
 
@@ -110,6 +114,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'text-list'
 
 LOGOUT_REDIRECT_URL = 'index'
+
+AUTH_USER_MODEL = "core.User"
