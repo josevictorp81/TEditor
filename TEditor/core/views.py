@@ -21,11 +21,12 @@ class TextListView(LoginRequiredMixin, ListView):
         context['text'] = Text.objects.all().filter(user=self.request.user)
         return context
 
-
+# trocar por uma funcao
 class TextCreateView(LoginRequiredMixin, CreateView):
     model = Text
     template_name = 'text_create.html'
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'user']
+    success_url = reverse_lazy('text-list')
     login_url = 'login'
 
 

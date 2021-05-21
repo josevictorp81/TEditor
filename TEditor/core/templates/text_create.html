@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
 {% block title %} Novo Texto {% endblock %}
 
 {% block content %}
-    
-    <form action="" method="POST" autocomplete="off">
-        <div id="body">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Example label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
-            </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Example label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
-            </div>
-            <button class="btn btn-primary" type="submit">Salvar</button>
+    <div class="card text-center">
+        <div class="card-body">
+            <form action="{% url 'text-create' %}" method="POST" class="form-inline">
+                {% csrf_token %}
+                {{ form.media }}
+                <p>
+                    {% render_field form.title class="form-control" placeholder=form.title.label %}
+                </p>
+                <p>
+                    {{ form.content }}
+                </p>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
         </div>
-    </form>
+    </div>
 {% endblock %}
