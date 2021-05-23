@@ -1,3 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %} Detalhes {% endblock %}
+
+{% block content %}
+    <div class="row my-5 mx-4">
+        <h2 id="detail">{{ object.title }}</h2><br>
+        <div class="col-md-12 mb-12">
+            <p>{{ object.content|safe }}</p><br><br>
+            <p><b>Data:</b> {{ object.create }}</p>
+        </div>
+    </div>
+    <p id="botoes">
+        <a href="{% url 'text-list' %}" id="voltar" class="btn btn-outline-primary">Voltar</a>
+        <a href="" id="editar" class="btn btn-success">Editar</a>
+        <a href="" class="btn btn-danger">Excluir</a>
+        <a href="" id="download" class="btn btn-primary">Download</a>
+    </p>
+{% endblock %}
