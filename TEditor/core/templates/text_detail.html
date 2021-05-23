@@ -9,11 +9,16 @@
             <p>{{ object.content|safe }}</p><br><br>
             <p><b>Data:</b> {{ object.create }}</p>
         </div>
+        <p id="botoes">
+            <a href="{% url 'text-list' %}" id="voltar" class="btn btn-outline-primary">Voltar</a>
+            <a href="" id="editar" class="btn btn-success">Editar</a> 
+            <a href="" id="download" class="btn btn-primary">Download</a>
+        </p>
+        <p>
+            <form action="{% url 'text-delete' object.pk %}" method="POST" class="form-group">
+                {% csrf_token %} 
+                <button class="btn btn-danger" type="submit">Excluir</button>
+            </form>
+        </p>
     </div>
-    <p id="botoes">
-        <a href="{% url 'text-list' %}" id="voltar" class="btn btn-outline-primary">Voltar</a>
-        <a href="" id="editar" class="btn btn-success">Editar</a>
-        <a href="" class="btn btn-danger">Excluir</a>
-        <a href="" id="download" class="btn btn-primary">Download</a>
-    </p>
 {% endblock %}

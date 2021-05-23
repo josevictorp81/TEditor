@@ -11,16 +11,11 @@ a{
     text-align: center;
 }
 
-p #voltar{
-    margin-left: 40px;
-    margin-right: 5px;
-}
-
-p #editar{
-    margin-right: 5px;
-}
-
 p #download{
     float: right;
     margin-right: 50px;
+}
+
+#botoes{
+    margin-top: 15px;
 }

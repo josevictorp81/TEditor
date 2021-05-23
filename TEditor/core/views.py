@@ -19,7 +19,7 @@ class TextListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TextListView, self).get_context_data(**kwargs)
-        context['text'] = Text.objects.all().filter(user=self.request.user)
+        context['text'] = Text.objects.all().order_by('-create').filter(user=self.request.user)
         return context
 
 @login_required
@@ -61,7 +61,6 @@ class TextUpdateView(LoginRequiredMixin, UpdateView):
 
 class TextDeleteView(LoginRequiredMixin, DeleteView):
     model = Text
-    template_name = 'text_delete.html'
     success_url = reverse_lazy('text-list')
     login_url = 'login'
 
