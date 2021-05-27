@@ -56,6 +56,7 @@ class TextUpdateView(LoginRequiredMixin, UpdateView):
     model = Text
     fields = ['title', 'content']
     template_name = 'text_update.html'
+    success_url = reverse_lazy('text-list')
     login_url = 'login'
 
 

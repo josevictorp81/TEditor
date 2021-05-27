@@ -1,3 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
 {% block title %} Atualizar {% endblock %}
+
+{% block content %}
+    <div class="card text-center">
+        <div class="card-body">
+            <form action="{% url 'text-update' object.pk %}" method="POST" class="form-inline">
+                {% csrf_token %}
+                {{ form.media }}
+                <p>
+                    {% render_field form.title class="form-control" placeholder=form.title.label %}
+                </p>
+                <p>
+                    {{ form.content }}
+                </p>
+                <a href="{% url 'text-detail' object.pk %}" id="voltar" class="btn btn-outline-primary">Voltar</a>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

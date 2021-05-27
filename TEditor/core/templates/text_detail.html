@@ -11,8 +11,8 @@
         </div>
         <p id="botoes">
             <a href="{% url 'text-list' %}" id="voltar" class="btn btn-outline-primary">Voltar</a>
-            <a href="" id="editar" class="btn btn-success">Editar</a> 
-            <a href="" id="download" class="btn btn-primary">Download</a>
+            <a href="{% url 'text-update' object.pk %}" id="editar" class="btn btn-success">Editar</a> 
+            <a href="{% url 'text-download' object.pk %}" target="_blank" id="download" class="btn btn-primary">Download</a>
         </p>
         <p>
             <form action="{% url 'text-delete' object.pk %}" method="POST" class="form-group">
