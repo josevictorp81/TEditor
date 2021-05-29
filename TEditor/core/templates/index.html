@@ -4,6 +4,22 @@
 
 {% block content %}
     <p id="login">
-        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        Seja bem vindo ao TEditor!
+    </p>
+    {% if user.is_authenticated %}
+        <p id="login">
+            <a href="{% url 'text-list' %}">Entrar</a>
+        </p>
+    {% else %}
+        <p id="login">
+            <a href="{% url 'login' %}">Entrar</a>
+        </p>
+    {% endif %}
+    <p id="login">
+        ou
+    </p>
+    <p id="login">
+        Se você ainda não posssui uma conta, crie a sua.
+        <a href="{% url 'signup' %}">Cadastre-se</a>.
     </p>
 {% endblock %}
