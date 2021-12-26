@@ -8,18 +8,18 @@
     </p>
     {% if user.is_authenticated %}
         <p id="login">
-            <a href="{% url 'text-list' %}">Entrar</a>
+            <a href="{% url 'text-list' %}">Listar Textos</a>
         </p>
     {% else %}
         <p id="login">
             <a href="{% url 'login' %}">Entrar</a>
         </p>
+        <p id="login">
+            ou
+        </p>
+        <p id="login">
+            Se você ainda não posssui uma conta, crie a sua.
+            <a href="{% url 'signup' %}">Cadastre-se</a>.
+        </p>
     {% endif %}
-    <p id="login">
-        ou
-    </p>
-    <p id="login">
-        Se você ainda não posssui uma conta, crie a sua.
-        <a href="{% url 'signup' %}">Cadastre-se</a>.
-    </p>
 {% endblock %}

@@ -38,13 +38,6 @@ def text_create(request):
         }
         return render(request, 'text_create.html', data)
 
-'''class TextCreateView(LoginRequiredMixin, CreateView):
-    model = Text
-    template_name = 'text_create.html'
-    fields = ['title', 'content', 'user']
-    success_url = reverse_lazy('text-list')
-    login_url = 'login'''
-
 
 class TextDetailView(LoginRequiredMixin, DetailView):
     model = Text
