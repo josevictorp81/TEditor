@@ -1,19 +1,9 @@
-#id_title{
-    width: 837px;
-    margin-left: 195px;
-}
-
 a{
     text-decoration: none;
 }
 
 #detail, #login{
     text-align: center;
-}
-
-p #download{
-    float: right;
-    margin-right: 50px;
 }
 
 #botoes{

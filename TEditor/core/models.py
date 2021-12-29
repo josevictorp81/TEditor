@@ -3,7 +3,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth import get_user_model
 
 class Text(models.Model):
-    title = models.CharField('Titulo', max_length=100, blank=False, null=False)
+    title = models.CharField('Título', max_length=100, blank=False, null=False)
     content = RichTextField(blank=True, null=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     create = models.DateTimeField(auto_now_add=True)

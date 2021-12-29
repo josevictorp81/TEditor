@@ -11,12 +11,12 @@
                 {% csrf_token %}
                 {{ form.media }}
                 <p>
-                    {% render_field form.title class="form-control" placeholder=form.title.label %}
+                    {% render_field form.title placeholder=form.title.label %}
                 </p>
                 <p>
                     {{ form.content }}
                 </p>
-                <a href="{% url 'index' %}" class="btn btn-secondary">Voltar</a>
+                <a href="{% url 'text-list' %}" class="btn btn-secondary">Voltar</a>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </div>
