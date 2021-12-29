@@ -71,7 +71,7 @@ No template *HTML*, inclua `{{ form.media }}` para ter uma visualização person
 </form>
 ```
 
-Configurações utilizadas nesta aplicação:
+Configurações personalizadas utilizadas nesta aplicação:
 ```python
 CKEDITOR_CONFIGS = {
     'default': {
