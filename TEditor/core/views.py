@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, CreateView, TemplateView, DeleteView, UpdateView
+from django.views.generic import ListView, DetailView, TemplateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from easy_pdf.views import PDFTemplateResponseMixin
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Text
