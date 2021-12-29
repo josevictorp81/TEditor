@@ -8,8 +8,6 @@ TEditor é um editor de texto Rich Text, que dispõe de varias opções para a f
 - [Django widgets_tweaks](https://pypi.org/project/django-widget-tweaks/), biblioteca que renderiza campos de formulário em templates.
 - [Django CKEditor](https://django-ckeditor.readthedocs.io/en/latest/), biblioteca que integra um editor do "WYSIWYG".
 
-## Instalação
-
 ### django-easy-pdf
 ```
 $ pip install django-easy-pdf WeasyPrint
